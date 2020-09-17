@@ -46,14 +46,18 @@ mongoose
   //     console.log(recipe[i].title);
   //   }})
   // })
+  // .then(() => {
+  //   Recipe.findOneAndUpdate (
+  //     {title: "Rigatoni alla Genovese"},
+  //     {duration:100},
+  //     {new : true}
+  //   ) .then (console.log("toto"))
+  // })
   .then(() => {
-    Recipe.findOneAndUpdate (
-      {title: "Rigatoni alla Genovese"},
-      {duration:100},
-      {new : true}
-    ) .then (console.log("toto"))
+    Recipe.deleteOne (
+      {title: "Carrot Cake"},
+    ) .then (console.log("Carrot Cake is no longer available"))
   })
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
-
