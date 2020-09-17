@@ -5,7 +5,7 @@ const recipeSchema = new Schema({
 	title: {
 		type: String,
 		unique: true,
-		required: [true, "Please enter a title"],
+		required: [true, "Please enter a title"]
 	},
 	level: {
 		type: String,

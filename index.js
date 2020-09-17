@@ -16,24 +16,44 @@ mongoose
   })
   .then(self => {
     console.log(`Connected to the database: "${self.connection.name}"`);
-    // Before adding any documents to the database, let's delete all previous entries
-    return self.connection.dropDatabase();
+  //   // Before adding any documents to the database, let's delete all previous entries
+  //   return self.connection.dropDatabase();
   })
+  // .then(() => {
+  //   Recipe.create({
+  //     "title": "Autre",
+  //     "level": "Amateur Chef",
+  //     "ingredients": [
+  //       "1/2 cup rice vinegar",
+  //       "5 tablespoons honey",
+  //       "1/3 cup soy sauce (such as Silver Swan®)",
+  //       "1/4 cup Asian (toasted) sesame oil",
+  //       "3 tablespoons Asian chili garlic sauce",
+  //       "3 tablespoons minced garlic",
+  //       "salt to taste",
+  //       "8 skinless, boneless chicken thighs"
+  //     ],
+  //     "cuisine": "Asian",
+  //     "dishType": "main_course",
+  //     "image": "https://images.media-allrecipes.com/userphotos/720x405/815964.jpg",
+  //     "duration": 40,
+  //     "creator": "Chef LePapu"
+  //   })
+  // })
+  // .then (() => {
+  //   Recipe.create(data)
+  //   .then (function recipe(recipe) {for (let i=0 ; i<recipe.length ; i++) {
+  //     console.log(recipe[i].title);
+  //   }})
+  // })
   .then(() => {
-    Recipe.insertMany(data)
-    .then( function recipe (recipe) { for (let i = 0; i < recipe.length ; i ++) {console.log(recipe[i].title)}})
+    Recipe.findOneAndUpdate (
+      {title: "Rigatoni alla Genovese"},
+      {duration:100},
+      {new : true}
+    ) .then (console.log("toto"))
   })
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
 
-
-  // title: 'Risotto Poulet',
-  //     level: "Easy Peasy",
-  //     ingredients: ['Riz', 'Poulet', 'etc'],
-  //     cuisine: 'Française',
-  //     dishType: 'main_course',
-  //     image: "https://www.cookomix.com/wp-content/uploads/2018/04/risotto-poulet-champignons-thermomix-800x600.jpg",
-  //     duration: 55,
-  //     creator: 'Jorell',
-  //     created: Date.now,
