@@ -19,9 +19,21 @@ mongoose
     // Before adding any documents to the database, let's delete all previous entries
     return self.connection.dropDatabase();
   })
-  .then(() => {
-    // Run your code here, after you have insured that the connection was made
-  })
+  // .then(() => {
+    // Recipe.create(data[0])
+    // .then(recipe => console.log(recipe.title))
+  // })
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
+
+
+  // title: 'Risotto Poulet',
+  //     level: "Easy Peasy",
+  //     ingredients: ['Riz', 'Poulet', 'etc'],
+  //     cuisine: 'Française',
+  //     dishType: 'main_course',
+  //     image: "https://www.cookomix.com/wp-content/uploads/2018/04/risotto-poulet-champignons-thermomix-800x600.jpg",
+  //     duration: 55,
+  //     creator: 'Jorell',
+  //     created: Date.now,
